@@ -25,7 +25,7 @@ SECRET_KEY = 'cya39i6(3oy8h=859&749n(@6n7=o9xqc(4#q-!-=e1y2xx)h1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['13.234.211.162']
 
 
 # Application definition
@@ -79,10 +79,14 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'portfolio',
+        #'HOST':'localhost',
+        #'USER':'root',
+        #'PASSWORD':'adgjmptw',
         'NAME': 'portfolio',
-        'HOST':'localhost',
-        'USER':'root',
-        'PASSWORD':'adgjmptw',
+        'HOST': 'pikachu-dbserver.cjh6zbklibkd.ap-south-1.rds.amazonaws.com',
+        'USER': 'root',
+        'PASSWORD': 'adgjmptw_47'
     }
 }
 
