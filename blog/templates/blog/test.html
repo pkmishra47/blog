@@ -55,7 +55,7 @@
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Blog<span class="text-primary"></span> </a></h1>
+            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Portfolio<span class="text-primary"></span> </a></h1>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -84,12 +84,12 @@
         <div class="row">
           <div class="col-md-7 align-self-center text-center text-md-left">
             <div class="intro-text">
-              <h1>Welcome To<span class="d-md-block">Mishra's Family</span></h1>
+              <h1>Welcome To<span class="d-md-block">The Club</span></h1>
               <p class="mb-4">“Family is not an important thing. It’s everything.”<span class="d-block"> –Michael J. Fox</p>
             </div>
           </div>
           <div class="col-md-5 align-self-center text-center text-md-right">
-            <img src="{% static 'blog/images/pradeep_mishra.jpg' %}" alt="Image" class="img-fluid cover-img">            
+            <img src="{% static 'blog/images/home_image.jpg' %}" alt="Image" class="img-fluid cover-img">            
           </div>
         </div>
       </div>
@@ -102,62 +102,36 @@
             <div class="paws">
               <span class="icon-paw"></span>
             </div>
-            <h2 class="text-black mb-2">Welcome to family introduction blog.</h2>
+            <h2 class="text-black mb-2">Welcome To Family Generation Tree</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
           </div>
         </div>
 
-        <div class="row hover-1-wrap mb-5 mb-lg-0">
-          <div class="col-12">
-            <div class="row">
-              <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
-                <a href="#" class="hover-1">
-                  <img src="{% static 'blog/images/pradeep_mishra.jpg' %}" alt="Image" class="img-fluid">
-                </a>
-              </div>
-              <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
-                <h2 class="text-black">Pradeep &amp; Mishra</h2>
-                <p class="mb-4">Engineer by profession, 28 years old, 6.2" tall. He is currently residing in Bangalore. Working as Lead Platform Engineer in startup company. He has professional experience of 5 years.</p>
-                <p><a href="#" class="btn btn-primary">Read More</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Show all members of family fetched from store -->
+        {% for member in members_data %}
+          <div class="row hover-1-wrap mb-5 mb-lg-0">
+            <div class="col-12">
+              <div class="row">
 
-        <div class="row hover-1-wrap mb-5 mb-lg-0">
-          <div class="col-12">
-            <div class="row">
-              <div class="mb-4 mb-lg-0 col-lg-6"  data-aos="fade-left">
-                <a href="#" class="hover-1">
-                  <img src="{% static 'blog/images/dogger_img_sm_1.jpg' %}" alt="Image" class="img-fluid">
-                </a>
-              </div>
-              <div class="col-lg-5 ml-auto align-self-center"  data-aos="fade-right">
-                <h2 class="text-black">Fearsome</h2>
-                <p class="mb-4">Far far away, behind the word mountains, Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p><a href="#" class="btn btn-primary">Read More</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="mb-4 mb-lg-0 col-lg-6"  data-aos="fade-left">
+                {% else %}
+                    <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
+                {% endif %}
+                  <a href="#" class="hover-1">
+                    <img src={% static 'blog/images/'|add:member.image_name|add:'.jpg' %} alt="Image" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
 
-        <div class="row hover-1-wrap">
-          <div class="col-12">
-            <div class="row">
-              <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
-                <a href="#" class="hover-1">
-                  <img src="{% static 'blog/images/dogger_img_sm_2.jpg' %}" alt="Image" class="img-fluid">
-                </a>
-              </div>
-              <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
-                <h2 class="text-black">Beautiful</h2>
-                <p class="mb-4">Far far away, behind the word mountains, Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p><a href="#" class="btn btn-primary">Read More</a></p>
+                  <h2 class="text-black">{{member.name}}</h2>
+                  <p class="mb-4">{{member.description}}</p>
+                  <p><a href="#" class="btn btn-primary">Read More</a></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        {% endfor %}
     </section>
 
     <section class="site-section" id="about-section">
@@ -182,7 +156,7 @@
               <span class="play">
                 <span class="icon-play"></span>
               </span>
-              <img src="{% static 'blog/images/dogger_img_big_1.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'blog/images/person_1.jpeg' %}" alt="Image" class="img-fluid">
             </a>
           </div>
         </div>
@@ -205,7 +179,7 @@
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
             <div class="trainer">
               <figure>
-              <img src="{% static 'blog/images/dogger_trainer_1.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'blog/images/person_1.jpeg' %}" alt="Image" class="img-fluid">
               </figure>
               <div class="px-md-3">
                 <h3>Jessica White</h3>
@@ -221,7 +195,7 @@
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="trainer">
               <figure>
-              <img src="{% static 'blog/images/dogger_trainer_2.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'blog/images/person_1.jpeg' %}" alt="Image" class="img-fluid">
               </figure>
               <div class="px-md-3">
                 <h3>Valerie Elash</h3>
@@ -238,7 +212,7 @@
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up"  data-aos-delay="200">
             <div class="trainer">
               <figure>
-              <img src="{% static 'blog/images/dogger_trainer_3.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'blog/images/person_1.jpeg' %}" alt="Image" class="img-fluid">
               </figure>
               <div class="px-md-3">
                 <h3>Alicia Jones</h3>
@@ -345,7 +319,7 @@
         </div>
         <div class="row accordion justify-content-center block__76208">
           <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0" data-aos="fade-up"  data-aos-delay="">
-            <img src="{% static 'blog/images/dogger_img_sm_1.jpg' %}" alt="Image" class="img-fluid rounded">
+            <img src="{% static 'blog/images/person_1.jpeg' %}" alt="Image" class="img-fluid rounded">
           </div>
           <div class="col-lg-5 mr-auto order-lg-1" data-aos="fade-up"  data-aos-delay="100">
             <div class="accordion-item">
@@ -534,7 +508,7 @@
             <div class="paws">
               <span class="icon-paw"></span>
             </div>
-            <h2 class="text-black mb-2">Dogger Blog</h2>
+            <h2 class="text-black mb-2">Family Blog</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
           </div>
         </div>
@@ -542,7 +516,7 @@
           <div class="col-md-6 mb-4" data-aos="fade-up"  data-aos-delay="">
             <div class="d-lg-flex blog-entry">
               <figure class="mr-4">
-                <a href="single.html"><img src="{% static 'blog/images/dogger_img_sm_1.jpg' %}" alt="Image" class="img-fluid"></a>
+                <a href="single.html"><img src="{% static 'blog/images/person_1.jpeg' %}" alt="Image" class="img-fluid"></a>
               </figure>
               <div class="blog-entry-text">
                 <h3><a href="single.html">5 Things You Need To Know About Dog Massage</a></h3>
@@ -555,7 +529,7 @@
           <div class="col-md-6 mb-4" data-aos="fade-up"  data-aos-delay="100">
             <div class="d-lg-flex blog-entry">
               <figure class="mr-4">
-                <a href="single.html"><img src="{% static 'blog/images/dogger_img_sm_2.jpg' %}" alt="Image" class="img-fluid"></a>
+                <a href="single.html"><img src="{% static 'blog/images/person_1.jpeg' %}" alt="Image" class="img-fluid"></a>
               </figure>
               <div class="blog-entry-text">
                 <h3><a href="single.html">5 Things You Need To Know About Dog Massage</a></h3>
@@ -569,7 +543,7 @@
           <div class="col-md-6 mb-4" data-aos="fade-up"  data-aos-delay="">
             <div class="d-lg-flex blog-entry">
               <figure class="mr-4">
-                <a href="single.html"><img src="{% static 'blog/images/dogger_img_sm_3.jpg' %}" alt="Image" class="img-fluid"></a>
+                <a href="single.html"><img src="{% static 'blog/images/person_1.jpeg' %}" alt="Image" class="img-fluid"></a>
               </figure>
               <div class="blog-entry-text">
                 <h3><a href="single.html">5 Things You Need To Know About Dog Massage</a></h3>
@@ -582,7 +556,7 @@
           <div class="col-md-6 mb-4" data-aos="fade-up"  data-aos-delay="100">
             <div class="d-lg-flex blog-entry">
               <figure class="mr-4">
-                <a href="single.html"><img src="{% static 'blog/images/dogger_img_sm_1.jpg' %}" alt="Image" class="img-fluid"></a>
+                <a href="single.html"><img src="{% static 'blog/images/person_1.jpeg' %}" alt="Image" class="img-fluid"></a>
               </figure>
               <div class="blog-entry-text">
                 <h3><a href="single.html">5 Things You Need To Know About Dog Massage</a></h3>
@@ -614,7 +588,7 @@
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
             
             <div class="block_service">
-              <img src="{% static 'blog/images/dogger_checkup.svg" alt="Image mb-5">
+              <img src="{% static 'blog/images/person_1.jpeg" alt="Image mb-5">
               <h3>Dog Checkup</h3>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
             </div>

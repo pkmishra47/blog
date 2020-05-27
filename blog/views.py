@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from blog.models import Members
 
 data = [
 	{
@@ -20,7 +21,22 @@ data = [
 ]
 
 def home(request):
-	return render(request,'blog/test.html',{'posts':data})
+	members = Members.objects.all()
+	members_data = []
+
+	for member in members:
+		members_data.append({"name":member.name,"description":member.description,"image_name":member.image_name})
+	print("members:{}".format(members_data))
+	return render(request,'blog/test.html',{'members_data':members_data})
+
+def test(request):
+	members = Members.objects.all()
+	members_data = []
+	
+	for member in members:
+		members_data.append({"name":member.name,"description":member.description,"image_name":member.image_name})
+	print("members:{}".format(members))
+	return render(request,'blog/base.html',{'members_data':members_data})	
 
 # def about(request):
 # 	return HttpResponse('<h1>Welcome to about page</h1>')	
